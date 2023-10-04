@@ -40,7 +40,7 @@ public class PointCPTest
     // Check if the user input coordinates from the command line
     // If he did, create the PointCP object from these arguments.
     // If he did not, prompt the user for them.
-    try
+    /*try
     {
       point = new PointCP(args[0].toUpperCase().charAt(0), 
         Double.valueOf(args[1]).doubleValue(), 
@@ -62,7 +62,7 @@ public class PointCPTest
         System.out.println("Error getting input. Ending program.");
         return;
       }
-    }
+    }*/
     System.out.println("\nYou entered:\n" + point);
     point.convertStorageToCartesian();
     System.out.println("\nAfter asking to store as Cartesian:\n" + point);
