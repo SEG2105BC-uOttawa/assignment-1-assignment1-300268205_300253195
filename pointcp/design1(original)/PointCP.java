@@ -2,6 +2,9 @@
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at http://www.site.uottawa.ca/school/research/lloseng/
 
+import design2.PointCP2;
+import design3.PointCP3;
+
 /**
  * This class contains instances of coordinates in either polar or
  * cartesian format.  It also provides the utilities to convert
@@ -12,6 +15,7 @@
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
+
 public class PointCP
 {
   //Instance variables ************************************************
@@ -27,12 +31,19 @@ public class PointCP
    * of coordinates.
    */
   private double xOrRho;
+  private double x;
+  private double y;
   
   /**
    * Contains the current value of Y or THETA value depending on the
    * type of coordinates.
    */
   private double yOrTheta;
+      PointCP2 design2Point = new PointCP2(xOrRho, yOrTheta);
+      PointCP3 design3Point = new PointCP3(x, y);
+
+   
+
 	
   
   //Constructors ******************************************************
@@ -51,39 +62,12 @@ public class PointCP
 	
   
   //Instance methods **************************************************
+
  
- 
-  public double getX()
-  {
-    if(typeCoord == 'C') 
-      return xOrRho;
-    else 
-      return (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
-  }
+
   
-  public double getY()
-  {
-    if(typeCoord == 'C') 
-      return yOrTheta;
-    else 
-      return (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
-  }
+
   
-  public double getRho()
-  {
-    if(typeCoord == 'P') 
-      return xOrRho;
-    else 
-      return (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
-  }
-  
-  public double getTheta()
-  {
-    if(typeCoord == 'P')
-      return yOrTheta;
-    else 
-      return Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
-  }
   
 	
   /**
@@ -94,8 +78,8 @@ public class PointCP
     if(typeCoord != 'P')
     {
       //Calculate RHO and THETA
-      double temp = getRho();
-      yOrTheta = getTheta();
+      double temp = design2Point.getRho();
+      yOrTheta = design2Point.getTheta();
       xOrRho = temp;
       
       typeCoord = 'P';  //Change coord type identifier
@@ -110,13 +94,16 @@ public class PointCP
     if(typeCoord != 'C')
     {
       //Calculate X and Y
-      double temp = getX();
-      yOrTheta = getY();
+      double temp = design3Point.getX();
+      yOrTheta = design3Point.getY();
       xOrRho = temp;
    
       typeCoord = 'C';	//Change coord type identifier
     }
   }
+
+
+
 
   /**
    * Calculates the distance in between two points using the Pythagorean
@@ -126,12 +113,12 @@ public class PointCP
    * @param pointB The second point.
    * @return The distance between the two points.
    */
-  public double getDistance(PointCP pointB)
+  public double getDistance(PointCP3 pointB)
   {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
-    double deltaX = getX() - pointB.getX();
-    double deltaY = getY() - pointB.getY();
+    double deltaX = design3Point.getX() - pointB.getX();
+    double deltaY = design3Point.getY() - pointB.getY();
     
     return Math.sqrt((Math.pow(deltaX, 2) + Math.pow(deltaY, 2)));
   }
@@ -147,8 +134,8 @@ public class PointCP
   public PointCP rotatePoint(double rotation)
   {
     double radRotation = Math.toRadians(rotation);
-    double X = getX();
-    double Y = getY();
+    double X = design3Point.getX();
+    double Y = design3Point.getY();
         
     return new PointCP('C',
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
@@ -163,7 +150,7 @@ public class PointCP
   public String toString()
   {
     return "Stored as " + (typeCoord == 'C' 
-       ? "Cartesian  (" + getX() + "," + getY() + ")"
-       : "Polar [" + getRho() + "," + getTheta() + "]") + "\n";
+       ? "Cartesian  (" + design3Point.getX() + "," + design3Point.getY() + ")"
+       : "Polar [" + design2Point.getRho() + "," + design2Point.getTheta() + "]") + "\n";
   }
 }
