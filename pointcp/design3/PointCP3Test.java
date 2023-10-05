@@ -1,13 +1,20 @@
 package design3;
 
+import java.util.Scanner;
+
 public class PointCP3Test {
 
     public static void main(String[] args) {
-        PointCP3 point = new PointCP3(1, 2);
-        System.out.println(point);
-        point.setX(3);
-        point.setY(4);
-        System.out.println(point);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter the value of x: ");
+            double x = scanner.nextDouble();
+
+            System.out.print("Enter the value of y: ");
+            double y = scanner.nextDouble();
+
+            PointCP3 point = new PointCP3(x, y);
+
+            System.out.println("Point coordinates: " + point);
+        }
     }
-    
 }

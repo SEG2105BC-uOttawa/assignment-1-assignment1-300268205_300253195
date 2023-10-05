@@ -4,7 +4,6 @@
 
 import design2.PointCP2;
 import design3.PointCP3;
-import design5.PointCP5;
 
 /**
  * This class contains instances of coordinates in either polar or

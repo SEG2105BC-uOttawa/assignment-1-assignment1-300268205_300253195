@@ -5,7 +5,7 @@ import java.util.Vector;
 //import java.util.Iterator;
 import java.util.Random;
 
-public class CollectionPerformance1 {
+public class Performance_a {
     public static void main(String[] args) {
         int collectionSize = 1000000;  // Adjust the collection size as needed
 

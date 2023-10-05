@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
-public class CollectionPerformance2 {
+public class Performance_b {
     // ... (previous code)
 
     public static void main(String[] args) {

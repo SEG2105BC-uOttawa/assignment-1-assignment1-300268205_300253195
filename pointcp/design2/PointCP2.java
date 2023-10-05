@@ -11,7 +11,8 @@ public class PointCP2 {
     
         public double getRho()
         {
-            return (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
+            return Math.cos(Math.toRadians(yOrTheta));
+
         }
   
         
@@ -20,7 +21,8 @@ public class PointCP2 {
   public double getTheta()
   {
 
-      return Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
+    return Math.sin(Math.toRadians(yOrTheta));
+
   }
 
   public double setRho(){

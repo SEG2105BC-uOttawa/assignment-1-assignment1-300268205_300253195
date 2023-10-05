@@ -12,11 +12,11 @@ public class PointCPTest {
         PointCP2 pointCP2 = getInputForPolarCoordinates();
         PointCP3 pointCP3 = getInputForCartesianCoordinates();
 
-        System.out.println("\nYou entered (Polar):\n" + pointCP2);
+        System.out.println("\nYou entered (Polar):\n");
         pointCP2.convertStorageToCartesian();
         System.out.println("\nAfter asking to store as Cartesian:\n" + pointCP2);
 
-        System.out.println("\nYou entered (Cartesian):\n" + pointCP3);
+        System.out.println("\nYou entered (Cartesian):\n" );
         pointCP3.convertStorageToPolar();
         System.out.println("\nAfter asking to store as Polar:\n" + pointCP3);
     }
